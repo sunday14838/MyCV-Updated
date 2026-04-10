@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using MyCV_App.Data;
+using System;
+
 namespace MyCV_App
 {
     public class Program
@@ -8,6 +12,9 @@ namespace MyCV_App
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddDbContext<PhotoDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             var app = builder.Build();
 

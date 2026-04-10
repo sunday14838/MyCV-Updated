@@ -1,0 +1,14 @@
+﻿<!-- Views/Photo/Create.cshtml -->
+@{
+    ViewData["Title"] = "Upload Photo";
+}
+
+<h2>Upload Photo</h2>
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <input type="text" name="title" placeholder="Title" class="form-control mb-2" />
+
+    <input type="file" name="file" class="form-control mb-2" />
+
+    <button type="submit" class="btn btn-primary">Upload</button>
+</form>

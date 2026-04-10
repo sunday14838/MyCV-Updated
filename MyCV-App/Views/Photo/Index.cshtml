@@ -1,0 +1,18 @@
+﻿<!-- Views/Photo/Index.cshtml -->
+@model IEnumerable<Photo>
+
+@{
+    ViewData["Title"] = "Gallery";
+}
+
+<h2 class="mb-4">Portfolio Gallery</h2>
+
+<div class="gallery">
+    @foreach (var item in Model)
+    {
+        <div class="gallery-item">
+            <img src="@item.ImagePath" alt="@item.Title" />
+            <div class="caption">@item.Title</div>
+        </div>
+    }
+</div>
