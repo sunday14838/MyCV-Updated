@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyCV_App.Data;
 
@@ -11,9 +12,11 @@ using MyCV_App.Data;
 namespace MyCV_App.Migrations
 {
     [DbContext(typeof(PhotoDbContext))]
-    partial class PhotoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260413085045_AddContactUs")]
+    partial class AddContactUs
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

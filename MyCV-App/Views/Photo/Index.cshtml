@@ -12,7 +12,15 @@
     {
         <div class="gallery-item">
             <img src="@item.ImagePath" alt="@item.Title" />
-            <div class="caption">@item.Title</div>
+            <div class="gallery-content">
+                <div class="caption">
+                    @(string.IsNullOrEmpty(item.Title) ? "Untitled" : item.Title)
+                </div>
+                <a asp-action="Delete" asp-route-id="@item.Id"
+                   class="btn btn-danger btn-sm mt-2">
+                    Delete
+                </a>
+            </div>
         </div>
     }
 </div>

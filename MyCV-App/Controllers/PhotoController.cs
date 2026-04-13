@@ -60,5 +60,39 @@ namespace MyCV_App.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            var photo = await photoDbContext.Photos.FindAsync(id);
+
+            if (photo == null)
+                return NotFound();
+
+            return View(photo);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var photo = await photoDbContext.Photos.FindAsync(id);
+
+            if (photo != null)
+            {
+                // DELETE IMAGE FILE
+                var filePath = Path.Combine(environment.WebRootPath, photo.ImagePath.TrimStart('/'));
+
+                if (System.IO.File.Exists(filePath))
+                {
+                    System.IO.File.Delete(filePath);
+                }
+
+                // DELETE FROM DATABASE
+                photoDbContext.Photos.Remove(photo);
+                await photoDbContext.SaveChangesAsync();
+            }
+
+            return RedirectToAction("Index");
+        }
+
     }
 }
