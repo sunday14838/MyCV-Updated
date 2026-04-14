@@ -9,7 +9,5 @@ namespace MyCV_App.Data
         {
         }
         public DbSet<Photo> Photos { get; set; }
-        public DbSet<ContactUs> Contacts { get; set; }
-
     }
 }
